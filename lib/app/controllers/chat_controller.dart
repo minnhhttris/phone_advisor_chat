@@ -1,4 +1,3 @@
-// D:\phone_advisor_chat\lib\app\controllers\chat_controller.dart
 import 'dart:convert';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
@@ -14,6 +13,7 @@ class ChatController extends GetxController {
   @override
   void onInit() {
     super.onInit();
+    loadPhonesAndSetContext();
     loadPhonesAndSetContext();
   }
 
@@ -36,17 +36,17 @@ Nguyên tắc tư vấn:
     *   **Tập trung vào sản phẩm:** Luôn giữ trọng tâm là tư vấn điện thoại.
     *   **Không giới thiệu bản thân lặp đi lặp lại.**
 5.  **Xử lý trường hợp đặc biệt:**
-    *   Nếu người dùng hỏi về điện thoại KHÔNG CÓ trong danh sách: "Dạ, rất tiếc mẫu [Tên điện thoại] hiện tại em chưa có thông tin cụ thể trong danh sách sản phẩm bên em. Anh/chị có thể tham khảo một số mẫu khác rất được ưa chuộng với cấu hình tương tự như [Gợi ý mẫu 1], [Gợi ý mẫu 2] không ạ? Hoặc anh/chị đang quan tâm đến tính năng nào khác để em tìm mẫu phù hợp hơn ạ?"
+*   Nếu người dùng hỏi về điện thoại KHÔNG CÓ trong danh sách: "Dạ, rất tiếc mẫu [Tên điện thoại] hiện tại em chưa có thông tin cụ thể trong danh sách sản phẩm bên em. Anh/chị có thể tham khảo một số mẫu khác rất được ưa chuộng với cấu hình tương tự như [Gợi ý mẫu 1], [Gợi ý mẫu 2] không ạ? Hoặc anh/chị đang quan tâm đến tính năng nào khác để em tìm mẫu phù hợp hơn ạ?"
     *   Nếu không tìm thấy sản phẩm phù hợp hoàn toàn: Hãy đưa ra những mẫu gần nhất và giải thích lý do, hoặc hỏi lại khách hàng có muốn điều chỉnh tiêu chí không.
 
 Dưới đây là danh sách điện thoại bạn có trong kho. Hãy sử dụng thông tin này để tư vấn khách hàng:
 ${jsonEncode(phones)} 
 
 Hãy bắt đầu nào!
+Hãy bắt đầu nào!
 """;
     gemini.setInitialContext(initialContext);
 
-    // Thêm tin nhắn chào mừng ban đầu từ bot (tùy chọn)
     messages.add(ChatMessage(
         role: "assistant",
         text:
@@ -56,9 +56,8 @@ Hãy bắt đầu nào!
   Future<void> sendMessage(String text) async {
     isLoading.value = true;
     messages.add(ChatMessage(role: "user", text: text));
-
-    // Gọi Gemini API, không cần gửi lại context nữa
     final reply = await gemini.getResponse(text);
+    messages.add(ChatMessage(role: "assistant", text: reply));
     messages.add(ChatMessage(role: "assistant", text: reply));
     isLoading.value = false;
   }
