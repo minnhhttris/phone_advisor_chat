@@ -14,7 +14,6 @@ class ChatController extends GetxController {
   void onInit() {
     super.onInit();
     loadPhonesAndSetContext();
-    loadPhonesAndSetContext();
   }
 
   Future<void> loadPhonesAndSetContext() async {
@@ -43,7 +42,6 @@ Dưới đây là danh sách điện thoại bạn có trong kho. Hãy sử dụ
 ${jsonEncode(phones)} 
 
 Hãy bắt đầu nào!
-Hãy bắt đầu nào!
 """;
     gemini.setInitialContext(initialContext);
 
@@ -57,7 +55,6 @@ Hãy bắt đầu nào!
     isLoading.value = true;
     messages.add(ChatMessage(role: "user", text: text));
     final reply = await gemini.getResponse(text);
-    messages.add(ChatMessage(role: "assistant", text: reply));
     messages.add(ChatMessage(role: "assistant", text: reply));
     isLoading.value = false;
   }
