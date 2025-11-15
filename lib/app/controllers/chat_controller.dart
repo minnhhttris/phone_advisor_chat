@@ -8,7 +8,6 @@ class ChatController extends GetxController {
   final messages = <ChatMessage>[].obs;
   final phones = [].obs;
   final gemini = GeminiService();
-  final gemini = GeminiService();
   var isLoading = false.obs;
 
   @override
@@ -51,7 +50,6 @@ Hãy bắt đầu nào!
     messages.add(ChatMessage(
         role: "assistant",
         text:
-            "Dạ, chào anh/ chị! Em là tư vấn viên điện thoại của Thế Giới Di Động. Em có thể giúp gì cho mình về các dòng điện thoại thông minh hôm nay ạ?"));
             "Dạ, chào anh/ chị! Em là tư vấn viên điện thoại của Thế Giới Di Động. Em có thể giúp gì cho mình về các dòng điện thoại thông minh hôm nay ạ?"));
   }
 
