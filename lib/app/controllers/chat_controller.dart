@@ -8,11 +8,13 @@ class ChatController extends GetxController {
   final messages = <ChatMessage>[].obs;
   final phones = [].obs;
   final gemini = GeminiService();
+  final gemini = GeminiService();
   var isLoading = false.obs;
 
   @override
   void onInit() {
     super.onInit();
+    loadPhonesAndSetContext();
     loadPhonesAndSetContext();
   }
 
@@ -42,6 +44,7 @@ Dưới đây là danh sách điện thoại bạn có trong kho. Hãy sử dụ
 ${jsonEncode(phones)} 
 
 Hãy bắt đầu nào!
+Hãy bắt đầu nào!
 """;
     gemini.setInitialContext(initialContext);
 
@@ -49,12 +52,14 @@ Hãy bắt đầu nào!
         role: "assistant",
         text:
             "Dạ, chào anh/ chị! Em là tư vấn viên điện thoại của Thế Giới Di Động. Em có thể giúp gì cho mình về các dòng điện thoại thông minh hôm nay ạ?"));
+            "Dạ, chào anh/ chị! Em là tư vấn viên điện thoại của Thế Giới Di Động. Em có thể giúp gì cho mình về các dòng điện thoại thông minh hôm nay ạ?"));
   }
 
   Future<void> sendMessage(String text) async {
     isLoading.value = true;
     messages.add(ChatMessage(role: "user", text: text));
     final reply = await gemini.getResponse(text);
+    messages.add(ChatMessage(role: "assistant", text: reply));
     messages.add(ChatMessage(role: "assistant", text: reply));
     isLoading.value = false;
   }
