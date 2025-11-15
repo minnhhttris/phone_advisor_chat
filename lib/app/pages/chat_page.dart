@@ -19,7 +19,7 @@ class ChatPage extends StatelessWidget {
         backgroundColor: Colors.grey[50],
         appBar: AppBar(
           title: const Text(
-            "Tư vấn điện thoại",
+            "Tư Vấn Điện Thoại",
             style: TextStyle(
               fontWeight: FontWeight.bold,
               color: Colors.white,
@@ -27,7 +27,7 @@ class ChatPage extends StatelessWidget {
           ),
           centerTitle: true,
           backgroundColor: theme.primaryColor,
-          elevation: 4, // Thêm đổ bóng cho App Bar
+          elevation: 4,
           shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.vertical(
               bottom: Radius.circular(20),
@@ -49,77 +49,92 @@ class ChatPage extends StatelessWidget {
                         alignment: isUser
                             ? Alignment.centerRight
                             : Alignment.centerLeft,
-                        child: Card(
-                          elevation: 1.5,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.only(
-                              topLeft: Radius.circular(isUser ? 12 : 0),
-                              topRight: Radius.circular(isUser ? 0 : 12),
-                              bottomLeft: const Radius.circular(12),
-                              bottomRight: const Radius.circular(12),
-                            ),
-                          ),
-                          margin: EdgeInsets.only(
-                            left: isUser ? Get.width * 0.2 : 10,
-                            right: isUser ? 10 : Get.width * 0.2,
-                            top: 5,
-                            bottom: 5,
-                          ),
-                          color: isUser
-                              ? theme.primaryColor.withOpacity(0.8)
-                              : Colors.white,
-                          child: Padding(
-                            padding: const EdgeInsets.all(12),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  msg.text,
-                                  style: TextStyle(
-                                    color:
-                                        isUser ? Colors.white : Colors.black87,
-                                    fontSize: 15,
-                                  ),
+                        child: LayoutBuilder(
+                          builder: (context, constraints) {
+                            final maxWidth = constraints.maxWidth * 0.8;
+
+                            return Card(
+                              elevation: 1.5,
+                              color: isUser ? theme.primaryColor : Colors.white,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.only(
+                                  topLeft: Radius.circular(isUser ? 12 : 0),
+                                  topRight: Radius.circular(isUser ? 0 : 12),
+                                  bottomLeft: const Radius.circular(12),
+                                  bottomRight: const Radius.circular(12),
                                 ),
-                                if (msg.imageUrl != null)
-                                  Padding(
-                                    padding: const EdgeInsets.only(top: 8),
-                                    child: ClipRRect(
-                                      borderRadius: BorderRadius.circular(8),
-                                      child: CachedNetworkImage(
-                                        imageUrl: msg.imageUrl!,
-                                        width: 180,
-                                        height: 180,
-                                        fit: BoxFit.cover,
-                                        placeholder: (context, url) =>
-                                            const CircularProgressIndicator(),
-                                        errorWidget: (context, url, error) =>
-                                            const Icon(Icons.error),
-                                      ),
-                                    ),
-                                  ),
-                                if (msg.link != null)
-                                  Padding(
-                                    padding: const EdgeInsets.only(top: 4),
-                                    child: InkWell(
-                                      onTap: () {
-                                        print("Mở link: ${msg.link}");
-                                      },
-                                      child: Text(
-                                        "Xem thêm: ${msg.link!}",
+                              ),
+                              margin: EdgeInsets.only(
+                                left: isUser ? Get.width * 0.2 : 10,
+                                right: isUser ? 10 : Get.width * 0.2,
+                                top: 5,
+                                bottom: 5,
+                              ),
+                              child: ConstrainedBox(
+                                constraints: BoxConstraints(maxWidth: maxWidth),
+                                child: Padding(
+                                  padding: const EdgeInsets.all(12),
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: [
+                                      Text(
+                                        msg.text,
                                         style: TextStyle(
                                           color: isUser
-                                              ? Colors.white70
-                                              : theme.primaryColor,
-                                          decoration: TextDecoration.underline,
-                                          fontSize: 14,
+                                              ? Colors.white
+                                              : Colors.black87,
+                                          fontSize: 15,
                                         ),
                                       ),
-                                    ),
+                                      if (msg.imageUrl != null)
+                                        Padding(
+                                          padding:
+                                              const EdgeInsets.only(top: 8),
+                                          child: ClipRRect(
+                                            borderRadius:
+                                                BorderRadius.circular(8),
+                                            child: CachedNetworkImage(
+                                              imageUrl: msg.imageUrl!,
+                                              width: 180,
+                                              height: 180,
+                                              fit: BoxFit.cover,
+                                              placeholder: (context, url) =>
+                                                  const CircularProgressIndicator(),
+                                              errorWidget:
+                                                  (context, url, error) =>
+                                                      const Icon(Icons.error),
+                                            ),
+                                          ),
+                                        ),
+                                      if (msg.link != null)
+                                        Padding(
+                                          padding:
+                                              const EdgeInsets.only(top: 4),
+                                          child: InkWell(
+                                            onTap: () {
+                                              print("Mở link: ${msg.link}");
+                                            },
+                                            child: Text(
+                                              "Xem thêm: ${msg.link!}",
+                                              style: TextStyle(
+                                                color: isUser
+                                                    ? Colors.white70
+                                                    : theme.primaryColor,
+                                                decoration:
+                                                    TextDecoration.underline,
+                                                fontSize: 14,
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                    ],
                                   ),
-                              ],
-                            ),
-                          ),
+                                ),
+                              ),
+                            );
+                          },
                         ),
                       );
                     },
@@ -149,11 +164,14 @@ class ChatPage extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(width: 10),
-                      const Text(
-                        "Advisor đang suy nghĩ...",
-                        style: TextStyle(
-                          fontStyle: FontStyle.italic,
-                          color: Colors.grey,
+                      const Flexible(
+                        child: Text(
+                          "Tư vấn viên đang trả lời...",
+                          style: TextStyle(
+                            fontStyle: FontStyle.italic,
+                            color: Colors.grey,
+                          ),
+                          overflow: TextOverflow.ellipsis,
                         ),
                       ),
                     ],
@@ -182,10 +200,10 @@ class ChatPage extends StatelessWidget {
                     Expanded(
                       child: TextField(
                         controller: inputCtrl,
-                        decoration: InputDecoration(
+                        decoration: const InputDecoration(
                           hintText: "Nhập câu hỏi...",
                           border: InputBorder.none,
-                          contentPadding: const EdgeInsets.symmetric(
+                          contentPadding: EdgeInsets.symmetric(
                               horizontal: 20, vertical: 12),
                         ),
                         maxLines: null,
