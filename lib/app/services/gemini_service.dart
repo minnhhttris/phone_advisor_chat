@@ -58,7 +58,7 @@ class GeminiService {
         "temperature": 0.7,
         "topP": 0.9,
         "topK": 40,
-        "maxOutputTokens": 1500,
+        "maxOutputTokens": 2048,
       },
       "safetySettings": [
         {"category": "HARM_CATEGORY_HARASSMENT", "threshold": "BLOCK_NONE"},
