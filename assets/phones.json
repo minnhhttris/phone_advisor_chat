@@ -1,16 +1,72 @@
 [
   {
-    "name": "iPhone 15 Pro",
+    "name": "iPhone 17 Pro Max",
     "brand": "Apple",
-    "price": 900000,
-    "description": "Chip A17 Pro, camera 48MP, thiết kế titanium.",
-    "link": "https://www.apple.com/iphone-15-pro"
+    "price": 38000000,
+    "description": "Phiên bản flagship mạnh mẽ nhất của Apple với màn hình 6,9″ Super Retina XDR, chip A19 Pro, hệ thống camera 48 MP Pro Fusion zoom quang học lên tới 8× và khung nhôm rèn nhiệt bền bỉ — được thiết kế để đáp ứng mọi nhu cầu từ giải trí đến sáng tạo nội dung",
+    "link": "https://www.thegioididong.com/dtdd/iphone-17-pro-max"
   },
   {
-    "name": "Samsung Galaxy S24",
+    "name": "iPhone 16 Pro Max",
+    "brand": "Apple",
+    "price": 31000000,
+    "description": "Tinh hoa công nghệ của Apple với màn hình OLED 6,9″ Super Retina XDR, chip A18 Pro mạnh mẽ và hệ thống camera 48MP / Telephoto 5×, đem đến trải nghiệm hình ảnh và hiệu năng đỉnh cao.",
+    "link": "https://www.thegioididong.com/dtdd/iphone-16-pro-max"
+  },
+  {
+    "name": "iPhone 15 Pro Max",
+    "brand": "Apple",
+    "price": 28900000,
+    "description": "Mẫu flagship của Apple với khung titan, màn hình 6,7″ Super Retina XDR 120 Hz và camera tele 5× giúp bạn ghi lại hình ảnh và video ở tầm cao mới.",
+    "link": "https://www.thegioididong.com/dtdd/iphone-15-pro-max"
+  },
+  {
+    "name": "Samsung Galaxy S25 Ultra",
     "brand": "Samsung",
-    "price": 8990000,
-    "description": "Màn hình AMOLED 120Hz, Snapdragon 8 Gen 3.",
-    "link": "https://www.samsung.com/galaxy-s24"
+    "price": 28900000,
+    "description": "Siêu phẩm Android với khung titan đẳng cấp, màn hình 6,9″ QHD+ 120Hz và cụm camera 200 MP + zoom quang 5×, mang đến hiệu năng vượt trội và sáng tạo đa chiều.",
+    "link": "https://www.thegioididong.com/dtdd/samsung-galaxy-s25-ultra"
+  },
+  {
+    "name": "Samsung Galaxy Z Fold7",
+    "brand": "Samsung",
+    "price": 43900000,
+    "description": "Thiết bị gập mỏng nhẹ đỉnh cao với màn hình lớn 8″ khi mở ra, camera 200 MP và chip Snapdragon 8 Elite — định nghĩa lại trải nghiệm smartphone cao cấp.",
+    "link": "https://www.thegioididong.com/dtdd/samsung-galaxy-z-fold7"
+  },
+  {
+    "name": "Samsung Galaxy A56", 
+    "brand": "Samsung",
+    "price": 10880000,
+    "description": "Một chiếc smartphone tầm trung xuất sắc với màn hình Super AMOLED 6,7″ tần số 120 Hz, camera chính 50 MP có OIS và chip Exynos 1580 4 nm — đem lại hiệu năng mượt mà và trải nghiệm sáng tạo nội dung vượt trội.",
+    "link": "https://www.thegioididong.com/dtdd/samsung-galaxy-a56?utm_flashsale=1"
+  },
+  {
+    "name": "Xiaomi 15T Pro",
+    "brand": "Xiaomi",
+    "price": 18490000,
+    "description": "Smartphone “trú ẩn” của phân khúc cận cao cấp, mang trong mình chip 3 nm Dimensity 9400+, màn hình AMOLED 6,83″ 144 Hz và hệ thống camera Leica với ống kính tiềm vọng zoom quang 5× — sẵn sàng cho cả người dùng yêu thích game lẫn nhiếp ảnh chuyên nghiệp.",
+    "link": "https://www.thegioididong.com/dtdd/xiaomi-15t-pro-12gb-256gb"
+  },
+  {
+    "name": "Xiaomi Redmi Note 14",
+    "brand": "Xiaomi",
+    "price": 6760000,
+    "description": "Điện thoại tầm trung nổi bật với màn hình AMOLED 6,67″ 120 Hz, camera chính 108 MP và pin dung lượng lớn 5.500 mAh — lựa chọn tối ưu giữa hiệu năng và giá thành.",
+    "link": "https://www.thegioididong.com/dtdd/xiaomi-15t-pro-12gb-256gb"
+  },
+  {
+    "name": "OPPO Find X9 Pro",
+    "brand": "Oppo",
+    "price": 32990000,
+    "description": "Flagship camera đỉnh cao với cảm biến Tele 200 MP, màn hình 6,78″ 1.5K LTPO 120Hz và pin “khủng” 7.500 mAh hỗ trợ sạc nhanh 80W – sẵn sàng cho trải nghiệm nhiếp ảnh và hiệu năng cao cấp.",
+    "link": "https://www.thegioididong.com/dtdd/oppo-find-x9-pro-16gb-512gb"
+  },
+  {
+    "name": "OPPO A6 Pro",
+    "brand": "Oppo",
+    "price": 7490000,
+    "description": "Smartphone tầm trung nhưng “chiến binh” với màn hình AMOLED 6,57″ 120 Hz, pin khổng lồ 7 000 mAh + sạc nhanh 80W và chuẩn kháng nước‑bụi IP69 — lý tưởng cho người dùng cần hiệu năng và độ bền.",
+    "link": "https://www.thegioididong.com/dtdd/oppo-a6-pro-8gb-128gb"
   }
 ]
